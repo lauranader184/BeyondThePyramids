@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond the Pyramids — Can Heritage Rebuild an Economy?</title>
+<meta name="description" content="Beyond the Pyramids: an investigation into whether better management of cultural heritage can transform an economy.">
+
+<!-- ============================================================
+     FONTS — Do not remove. These give the site its museum feel.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     LOADING SCREEN — plays once when the page opens.
+     ============================================================ -->
+<div id="loader" class="loader">
+  <div class="loader-mark">
+    <svg viewBox="0 0 100 100" class="loader-triangle"><polygon points="50,15 90,85 10,85"/></svg>
+  </div>
+  <p class="loader-text">Entering the exhibition…</p>
+</div>
+
+<!-- ============================================================
+     NAVIGATION
+     CHANGE LOGO: images/logo.png is your uploaded logo file.
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <img src="images/logo.png" alt="Beyond the Pyramids logo" class="brand-logo">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#investigation">The Investigation</a>
+      <a href="#question-1">Before</a>
+      <a href="#question-2">Change</a>
+      <a href="#question-3">Results</a>
+      <a href="#economic-lens">Economics</a>
+      <a href="#trade-offs">Trade-offs</a>
+      <a href="#voices">Voices</a>
+      <a href="#documentary">Film</a>
+      <a href="#policy">Policy</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Vertical excavation gauge — fills in as the visitor scrolls through the investigation -->
+<div class="dig-gauge" id="digGauge" aria-hidden="true">
+  <div class="dig-gauge-fill" id="digGaugeFill"></div>
+</div>
+
+<main>
+
+<!-- ============================================================
+     HOME / HERO
+     CHANGE TITLE, CHANGE BACKGROUND IMAGE
+     ============================================================ -->
+<section id="home" class="hero">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <!-- INSERT PHOTO: a wide cinematic photograph of the Grand Egyptian Museum or the Giza plateau at dawn/dusk works best here. Replace the CSS background-image on .hero in style.css, or add an <img> here. -->
+  <div class="hero-content">
+    <img src="images/logo.png" alt="Beyond the Pyramids" class="hero-logo">
+    <!-- CHANGE TITLE -->
+    <h1 class="hero-title">Beyond the Pyramids</h1>
+    <!-- CHANGE RESEARCH QUESTION -->
+    <p class="hero-question">Can better management of cultural heritage transform an entire economy?</p>
+    <a href="#investigation" class="btn btn-gold">Start the Investigation</a>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ============================================================
+     THE INVESTIGATION
+     ============================================================ -->
+<section id="investigation" class="section section-dark">
+  <div class="container">
+    <p class="eyebrow">Field Notes</p>
+    <h2 class="section-title">The Investigation</h2>
+    <!-- WRITE INTRODUCTION -->
+    <div class="editable-text lede">
+      <p>[Write 2–3 sentences introducing this project: who you are, why you chose this question, and what "better management of cultural heritage" means in this context — e.g. restoration, ticketing reform, new museum infrastructure, digital cataloguing, or public-private partnership.]</p>
+      <p>[Write 2–3 sentences explaining what the visitor is about to see: three investigative questions, evidence drawn from tourism and revenue data, interviews with Egyptians connected to the sites, and a closing economic analysis.]</p>
+    </div>
+    <div class="investigation-meta">
+      <div class="meta-item"><span class="meta-label">Case File</span><span class="meta-value">Egypt's Cultural Heritage Economy</span></div>
+      <div class="meta-item"><span class="meta-label">Period Examined</span><span class="meta-value">[Insert years, e.g. 2011–2024]</span></div>
+      <div class="meta-item"><span class="meta-label">Method</span><span class="meta-value">Economic data, field interviews, comparative analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUESTION 1
+     ============================================================ -->
+<section id="question-1" class="section question-section reveal">
+  <div class="container">
+    <p class="eyebrow">Exhibit I</p>
+    <h2 class="section-title">Why were the Pyramids and Egyptian Museum struggling before management reforms?</h2>
+
+    <div class="editable-text">
+      <p>[Write your explanation here: describe the state of the sites before reform — underfunding, overcrowding, poor visitor infrastructure, informal vendors, security concerns, lost revenue leakage, or political instability such as the 2011 revolution's effect on tourism.]</p>
+    </div>
+
+    <!-- BEFORE / AFTER SLIDER -->
+    <div class="ba-slider" id="baSlider1">
+      <div class="ba-slider-before">
+        <!-- INSERT PHOTO: BEFORE photograph -->
+        <div class="placeholder-box">INSERT PHOTO<br><span>Before photograph — site condition prior to reform</span></div>
+      </div>
+      <div class="ba-slider-after">
+        <!-- INSERT PHOTO: AFTER photograph -->
+        <div class="placeholder-box">INSERT PHOTO<br><span>After photograph — site condition following reform</span></div>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Drag to compare before and after">
+      <div class="ba-slider-handle"><span>&#8596;</span></div>
+    </div>
+
+    <div class="two-col">
+      <!-- INSERT GRAPH -->
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert graph comparing annual visitor numbers or tourism revenue in the years leading up to reform.]</span></div>
+
+      <!-- ECONOMIC QUESTION BOX -->
+      <div class="econ-box">
+        <p class="econ-label">Economic Question</p>
+        <!-- CHANGE TEXT -->
+        <p>[Insert a guiding economic question for the reader to consider, e.g. "What happens to an economy when a valuable asset is under-managed?"]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUESTION 2
+     ============================================================ -->
+<section id="question-2" class="section question-section section-dark reveal">
+  <div class="container">
+    <p class="eyebrow">Exhibit II</p>
+    <h2 class="section-title">What changed?</h2>
+
+    <div class="editable-text">
+      <p>[Write your explanation here: describe the specific reforms — new leadership, the Grand Egyptian Museum construction, digital ticketing, restoration projects, marketing campaigns, or foreign investment.]</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline" id="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">[Year]</span>
+        <p class="timeline-text">[Insert first key reform or event.]</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">[Year]</span>
+        <p class="timeline-text">[Insert second key reform or event.]</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">[Year]</span>
+        <p class="timeline-text">[Insert third key reform or event.]</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">[Year]</span>
+        <p class="timeline-text">[Insert fourth key reform or event, e.g. opening of the Grand Egyptian Museum.]</p>
+      </div>
+      <!-- DUPLICATE a .timeline-item block above to add more entries -->
+    </div>
+
+    <div class="two-col">
+      <!-- INSERT PHOTO -->
+      <div class="placeholder-box">INSERT PHOTO<br><span>[Insert a photo illustrating the reform process, e.g. construction or restoration in progress.]</span></div>
+      <!-- INSERT GRAPH -->
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert graph showing investment or spending on reforms over time.]</span></div>
+    </div>
+
+    <!-- VIDEO PLACEHOLDER -->
+    <div class="placeholder-box video-box">INSERT VIDEO<br><span>[Embed a short video explaining the reforms — replace this box with an &lt;iframe&gt; embed code from YouTube or Vimeo in index.html.]</span></div>
+
+    <!-- ECONOMIC QUESTION BOX -->
+    <div class="econ-box">
+      <p class="econ-label">Economic Question</p>
+      <p>[Insert a guiding economic question, e.g. "Why might a government choose to invest heavily in heritage before seeing any return?"]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUESTION 3
+     ============================================================ -->
+<section id="question-3" class="section question-section reveal">
+  <div class="container">
+    <p class="eyebrow">Exhibit III</p>
+    <h2 class="section-title">Did it work?</h2>
+
+    <div class="editable-text">
+      <p>[Write your analysis here: summarise what the data shows about tourism, revenue, jobs, and visitor experience since the reforms.]</p>
+    </div>
+
+    <!-- ANIMATED STATISTICS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" data-target="0" data-suffix="%">0</span>
+        <!-- CHANGE data-target above to your real figure, e.g. data-target="63" -->
+        <p class="stat-label">[Insert stat label, e.g. "Growth in annual visitors"]</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="0" data-prefix="$" data-suffix="B">0</span>
+        <p class="stat-label">[Insert stat label, e.g. "Tourism revenue"]</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="0" data-suffix="K">0</span>
+        <p class="stat-label">[Insert stat label, e.g. "Jobs supported"]</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="0" data-suffix="%">0</span>
+        <p class="stat-label">[Insert stat label, e.g. "Visitor satisfaction score"]</p>
+      </div>
+    </div>
+
+    <div class="graph-grid">
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert tourism graph: annual arrivals before vs. after.]</span></div>
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert revenue graph: heritage-sector revenue over time.]</span></div>
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert visitor satisfaction graph, from survey data.]</span></div>
+      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert conservation graph, e.g. number of restored artefacts or sites.]</span></div>
+    </div>
+
+    <!-- ECONOMIC QUESTION BOX -->
+    <div class="econ-box">
+      <p class="econ-label">Economic Question</p>
+      <p>[Insert a guiding economic question, e.g. "Do these numbers prove causation, or only correlation?"]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE ECONOMIC LENS
+     ============================================================ -->
+<section id="economic-lens" class="section section-dark">
+  <div class="container">
+    <p class="eyebrow">Framework</p>
+    <h2 class="section-title">The Economic Lens</h2>
+    <div class="editable-text lede">
+      <p>[Write a short introduction explaining that this section applies core economic concepts to the case you've just presented.]</p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h3>Incentives</h3>
+        <!-- CHANGE TEXT -->
+        <p>[Explain how incentives — for the government, private investors, or local workers — shaped decisions about heritage management.]</p>
+      </div>
+      <div class="concept-card">
+        <h3>Multiplier Effect</h3>
+        <p>[Explain how spending on heritage sites ripples outward into hotels, transport, crafts, and food industries.]</p>
+      </div>
+      <div class="concept-card">
+        <h3>Externalities</h3>
+        <p>[Explain positive or negative externalities, e.g. job creation nearby, or overcrowding and pollution.]</p>
+      </div>
+      <div class="concept-card">
+        <h3>Efficiency</h3>
+        <p>[Explain whether resources are now being used more efficiently than before reform.]</p>
+      </div>
+      <div class="concept-card">
+        <h3>Equity</h3>
+        <p>[Explain who benefits most from these reforms, and who might be left out.]</p>
+      </div>
+      <div class="concept-card">
+        <h3>Opportunity Cost</h3>
+        <p>[Explain what else the government could have spent this money on instead.]</p>
+      </div>
+      <!-- DUPLICATE a .concept-card block above to add more concepts -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE TRADE-OFFS
+     ============================================================ -->
+<section id="trade-offs" class="section">
+  <div class="container">
+    <p class="eyebrow">Weighing the Evidence</p>
+    <h2 class="section-title">The Trade-offs</h2>
+    <div class="editable-text lede">
+      <p>[Write a short introduction explaining that heritage-led growth is not without costs. Tap each card to expand it.]</p>
+    </div>
+
+    <div class="tradeoff-grid">
+      <button class="tradeoff-card" data-expand>
+        <h3>Affordability</h3>
+        <p class="tradeoff-summary">[One-line summary]</p>
+        <div class="tradeoff-detail">[Write the full explanation here: does rising ticket pricing and tourism investment push out local visitors?]</div>
+      </button>
+      <button class="tradeoff-card" data-expand>
+        <h3>Commercialisation</h3>
+        <p class="tradeoff-summary">[One-line summary]</p>
+        <div class="tradeoff-detail">[Write the full explanation here: does heritage risk becoming a product rather than a place of meaning?]</div>
+      </button>
+      <button class="tradeoff-card" data-expand>
+        <h3>Environmental Pressure</h3>
+        <p class="tradeoff-summary">[One-line summary]</p>
+        <div class="tradeoff-detail">[Write the full explanation here: what strain does mass tourism place on fragile sites?]</div>
+      </button>
+      <button class="tradeoff-card" data-expand>
+        <h3>Local Communities</h3>
+        <p class="tradeoff-summary">[One-line summary]</p>
+        <div class="tradeoff-detail">[Write the full explanation here: how are nearby residents and informal workers affected?]</div>
+      </button>
+      <button class="tradeoff-card" data-expand>
+        <h3>Sustainability</h3>
+        <p class="tradeoff-summary">[One-line summary]</p>
+        <div class="tradeoff-detail">[Write the full explanation here: can this growth be maintained long-term?]</div>
+      </button>
+      <!-- DUPLICATE a .tradeoff-card block above to add more trade-offs -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VOICES OF EGYPT
+     ============================================================ -->
+<section id="voices" class="section section-dark">
+  <div class="container">
+    <p class="eyebrow">Testimony</p>
+    <h2 class="section-title">Voices of Egypt</h2>
+    <div class="editable-text lede">
+      <p>[Write a short introduction explaining who you interviewed and why their perspective matters to the investigation.]</p>
+    </div>
+
+    <div class="interview-grid">
+
+      <!-- INTERVIEW CARD — duplicate this whole .interview-card block to add more people -->
+      <article class="interview-card">
+        <div class="interview-photo">
+          <!-- INSERT PHOTO -->
+          <div class="placeholder-box small">PHOTO</div>
+        </div>
+        <!-- CHANGE NAME -->
+        <h3 class="interview-name">[Name]</h3>
+        <!-- CHANGE OCCUPATION -->
+        <p class="interview-role">[Occupation, e.g. Tour guide, Giza Plateau]</p>
+        <!-- CHANGE QUOTE -->
+        <p class="interview-quote">"[Insert a short quote from the interview.]"</p>
+        <button class="btn btn-outline interview-toggle" data-expand>Watch Interview</button>
+        <div class="interview-video">
+          <!-- INSERT VIDEO -->
+          <div class="placeholder-box video-box">INSERT VIDEO<br><span>[Embed interview video here.]</span></div>
+        </div>
+      </article>
+
+      <article class="interview-card">
+        <div class="interview-photo">
+          <div class="placeholder-box small">PHOTO</div>
+        </div>
+        <h3 class="interview-name">[Name]</h3>
+        <p class="interview-role">[Occupation, e.g. Souvenir vendor, Khan el-Khalili]</p>
+        <p class="interview-quote">"[Insert a short quote from the interview.]"</p>
+        <button class="btn btn-outline interview-toggle" data-expand>Watch Interview</button>
+        <div class="interview-video">
+          <div class="placeholder-box video-box">INSERT VIDEO<br><span>[Embed interview video here.]</span></div>
+        </div>
+      </article>
+
+      <article class="interview-card">
+        <div class="interview-photo">
+          <div class="placeholder-box small">PHOTO</div>
+        </div>
+        <h3 class="interview-name">[Name]</h3>
+        <p class="interview-role">[Occupation, e.g. Ministry of Tourism official]</p>
+        <p class="interview-quote">"[Insert a short quote from the interview.]"</p>
+        <button class="btn btn-outline interview-toggle" data-expand>Watch Interview</button>
+        <div class="interview-video">
+          <div class="placeholder-box video-box">INSERT VIDEO<br><span>[Embed interview video here.]</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOCUMENTARY
+     ============================================================ -->
+<section id="documentary" class="section">
+  <div class="container">
+    <p class="eyebrow">Field Footage</p>
+    <h2 class="section-title">Documentary</h2>
+
+    <!-- MAIN VIDEO -->
+    <div class="placeholder-box video-box large">INSERT VIDEO<br><span>[Embed your main documentary here — replace with an &lt;iframe&gt; from YouTube/Vimeo.]</span></div>
+
+    <!-- WRITE INTRODUCTION -->
+    <div class="editable-text">
+      <p>[Write a short description of the documentary: what it covers, how it was filmed, and what the viewer should take away from it.]</p>
+    </div>
+
+    <h3 class="subheading">Film Gallery</h3>
+    <div class="film-gallery">
+      <div class="placeholder-box small">CLIP</div>
+      <div class="placeholder-box small">CLIP</div>
+      <div class="placeholder-box small">CLIP</div>
+      <div class="placeholder-box small">CLIP</div>
+      <!-- DUPLICATE a placeholder-box above to add more clips -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     POLICY BRIEF
+     ============================================================ -->
+<section id="policy" class="section section-dark">
+  <div class="container">
+    <p class="eyebrow">Findings</p>
+    <h2 class="section-title">Policy Brief</h2>
+    <div class="editable-text lede">
+      <p>[Write a short introduction to your recommendations, based on the evidence presented above.]</p>
+    </div>
+
+    <div class="policy-grid">
+      <button class="policy-card" data-expand>
+        <span class="policy-icon">&#9779;</span>
+        <h3>[Recommendation One]</h3>
+        <p class="policy-summary">[Short explanation in one sentence.]</p>
+        <div class="policy-detail">[Write the fuller reasoning behind this recommendation here.]</div>
+      </button>
+      <button class="policy-card" data-expand>
+        <span class="policy-icon">&#9776;</span>
+        <h3>[Recommendation Two]</h3>
+        <p class="policy-summary">[Short explanation in one sentence.]</p>
+        <div class="policy-detail">[Write the fuller reasoning behind this recommendation here.]</div>
+      </button>
+      <button class="policy-card" data-expand>
+        <span class="policy-icon">&#9770;</span>
+        <h3>[Recommendation Three]</h3>
+        <p class="policy-summary">[Short explanation in one sentence.]</p>
+        <div class="policy-detail">[Write the fuller reasoning behind this recommendation here.]</div>
+      </button>
+      <button class="policy-card" data-expand>
+        <span class="policy-icon">&#9737;</span>
+        <h3>[Recommendation Four]</h3>
+        <p class="policy-summary">[Short explanation in one sentence.]</p>
+        <div class="policy-detail">[Write the fuller reasoning behind this recommendation here.]</div>
+      </button>
+      <button class="policy-card" data-expand>
+        <span class="policy-icon">&#9670;</span>
+        <h3>[Recommendation Five]</h3>
+        <p class="policy-summary">[Short explanation in one sentence.]</p>
+        <div class="policy-detail">[Write the fuller reasoning behind this recommendation here.]</div>
+      </button>
+      <!-- DUPLICATE a .policy-card block above to add more recommendations -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT THE PROJECT
+     ============================================================ -->
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <!-- INSERT PHOTO -->
+      <div class="placeholder-box small">PHOTO</div>
+    </div>
+    <div>
+      <p class="eyebrow">Curator's Note</p>
+      <h2 class="section-title">About the Project</h2>
+      <!-- WRITE INTRODUCTION -->
+      <div class="editable-text">
+        <p>[Write your project story here: why you chose this topic, what you hope readers take away, and what this project means for your studies.]</p>
+      </div>
+      <h3 class="subheading">Acknowledgements</h3>
+      <div class="editable-text">
+        <p>[Thank the people, teachers, or institutions who supported this project.]</p>
+      </div>
+      <h3 class="subheading">Contact</h3>
+      <div class="editable-text">
+        <p>[Insert your email or preferred contact method here.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <img src="images/logo.png" alt="Beyond the Pyramids logo" class="footer-logo">
+  <p>&copy; 2026 Beyond the Pyramids. An independent economics research project.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
