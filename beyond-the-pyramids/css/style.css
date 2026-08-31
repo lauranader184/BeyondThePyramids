@@ -139,7 +139,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   gap: 24px;
 }
-.brand-logo { height: 40px; width: auto; filter: brightness(0) invert(1); }
+.brand-logo { height: 48px; width: auto; }
 .main-nav {
   display: none;
   gap: 26px;
@@ -240,7 +240,7 @@ a { color: inherit; text-decoration: none; }
   from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.hero-logo { width: 300px; margin: 0 auto 36px; filter: brightness(0) invert(1); }
+.hero-logo { width: 300px; margin: 0 auto 36px; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 500;
@@ -531,7 +531,7 @@ a { color: inherit; text-decoration: none; }
   padding: 56px 24px;
   font-size: 13px;
 }
-.footer-logo { width: 140px; margin: 0 auto 20px; filter: brightness(0) invert(1); opacity: 0.85; }
+.footer-logo { width: 140px; margin: 0 auto 20px; opacity: 0.85; }
 
 /* ================================================================
    HOVER EFFECTS — general lift

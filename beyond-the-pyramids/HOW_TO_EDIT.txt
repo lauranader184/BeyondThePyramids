@@ -59,10 +59,10 @@ You do not need to know how to code. Follow this guide.
    the colour picker in Word/PowerPoint to find a hex code.
 
 9. THE HERO (HOME) BACKGROUND
-   The homepage currently uses a dark navy background with a subtle
-   gold pattern. If you'd like a photograph behind the title instead,
-   open css/style.css, find the ".hero" rule near the top of the
-   HERO section, and add this line inside it:
+   The homepage currently uses a cream / off-white background with a
+   subtle gold pattern. If you'd like a photograph behind the title
+   instead, open css/style.css, find the ".hero" rule near the top of
+   the HERO section, and add this line inside it:
         background-image: url('../images/your-photo.jpg');
         background-size: cover;
         background-position: center;
