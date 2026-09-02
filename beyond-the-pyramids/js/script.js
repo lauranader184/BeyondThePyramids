@@ -114,9 +114,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------------- EXPANDABLE CARDS (trade-offs, policy, interviews) ---------------- */
   document.querySelectorAll("[data-expand]").forEach(function (card) {
-    card.addEventListener("click", function (e) {
+    card.addEventListener("click", function () {
       // Interview toggle button lives inside an .interview-card
       var target = card.classList.contains("interview-toggle") ? card.closest(".interview-card") : card;
+
+      // Trade-offs: accordion — only one open at a time
+      if (target && target.closest("#trade-offs") && target.classList.contains("tradeoff-card")) {
+        var opening = !target.classList.contains("is-open");
+        document.querySelectorAll("#trade-offs .tradeoff-card.is-open").forEach(function (openCard) {
+          openCard.classList.remove("is-open");
+          openCard.setAttribute("aria-expanded", "false");
+        });
+        if (opening) {
+          target.classList.add("is-open");
+          target.setAttribute("aria-expanded", "true");
+        }
+        return;
+      }
+
       target.classList.toggle("is-open");
       if (card.classList.contains("interview-toggle")) {
         card.textContent = target.classList.contains("is-open") ? "Hide Interview" : "Watch Interview";
