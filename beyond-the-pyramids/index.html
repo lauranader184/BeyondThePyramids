@@ -324,41 +324,142 @@
     <h2 class="section-title">Did it work?</h2>
 
     <div class="editable-text">
-      <p>[Write your analysis here: summarise what the data shows about tourism, revenue, jobs, and visitor experience since the reforms.]</p>
+      <p>The results point to a significant transformation. Egypt is attracting record numbers of tourists while investment in museums and archaeological sites has expanded conservation capacity and improved the way visitors experience its heritage. However, rising tourism cannot be attributed to heritage reform alone: exchange rates, security, air connectivity, marketing and wider tourism investment also influence demand.</p>
     </div>
 
-    <!-- ANIMATED STATISTICS -->
+    <!-- HEADLINE RESULTS -->
     <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-number" data-target="0" data-suffix="%">0</span>
-        <!-- CHANGE data-target above to your real figure, e.g. data-target="63" -->
-        <p class="stat-label">[Insert stat label, e.g. "Growth in annual visitors"]</p>
+        <span class="stat-number" data-target="19" data-suffix="M">0</span>
+        <p class="stat-label">International tourists, 2025</p>
+        <p class="stat-note">A new record</p>
       </div>
       <div class="stat-card">
-        <span class="stat-number" data-target="0" data-prefix="$" data-suffix="B">0</span>
-        <p class="stat-label">[Insert stat label, e.g. "Tourism revenue"]</p>
+        <span class="stat-number" data-target="21" data-prefix="+" data-suffix="%">0</span>
+        <p class="stat-label">Tourist arrivals vs 2024</p>
+        <p class="stat-note">Far above global growth</p>
       </div>
       <div class="stat-card">
-        <span class="stat-number" data-target="0" data-suffix="K">0</span>
-        <p class="stat-label">[Insert stat label, e.g. "Jobs supported"]</p>
+        <span class="stat-number" data-target="30" data-prefix="+" data-suffix="%">0</span>
+        <p class="stat-label">Museum &amp; archaeological-site ticket admissions</p>
+        <p class="stat-note">Reported for 2025</p>
       </div>
       <div class="stat-card">
-        <span class="stat-number" data-target="0" data-suffix="%">0</span>
-        <p class="stat-label">[Insert stat label, e.g. "Visitor satisfaction score"]</p>
+        <span class="stat-number" data-target="15" data-suffix="K">0</span>
+        <p class="stat-label">GEM visitors per day</p>
+        <p class="stat-note">Reported after opening</p>
       </div>
     </div>
+    <p class="results-source">Sources: Egyptian Ministry of Tourism and Antiquities / State Information Service.</p>
 
-    <div class="graph-grid">
-      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert tourism graph: annual arrivals before vs. after.]</span></div>
-      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert revenue graph: heritage-sector revenue over time.]</span></div>
-      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert visitor satisfaction graph, from survey data.]</span></div>
-      <div class="placeholder-box graph-box">INSERT GRAPH<br><span>[Insert conservation graph, e.g. number of restored artefacts or sites.]</span></div>
+    <!-- MAIN TOURISM RECOVERY CHART -->
+    <figure class="data-chart results-chart" aria-labelledby="recovery-chart-title">
+      <figcaption id="recovery-chart-title" class="data-chart-title">Egypt's Tourism Recovery</figcaption>
+      <p class="data-chart-axis-label">International tourist arrivals, millions</p>
+      <!-- Exact annual values (millions): 2010:14.731 2011:9.845 2012:11.532 2013:9.464 2014:9.878 2015:9.328 2016:5.399 2017:8.292 2018:11.346 2019:13.026 2020:3.678 2021:7.999 2022:11.724 2023:14.906 2024:15.8 2025:19.0 -->
+      <svg class="data-chart-svg" viewBox="0 0 960 380" role="img" aria-label="Continuous line chart of Egypt international tourist arrivals from 2010 to 2025 in millions">
+        <rect x="0" y="0" width="960" height="380" fill="#F7F3EA"/>
+        <!-- Grid -->
+        <g stroke="#0B1E3A" stroke-opacity="0.08" stroke-width="1">
+          <line x1="64" y1="62.2" x2="920" y2="62.2"/>
+          <line x1="64" y1="127.6" x2="920" y2="127.6"/>
+          <line x1="64" y1="193.1" x2="920" y2="193.1"/>
+          <line x1="64" y1="258.5" x2="920" y2="258.5"/>
+          <line x1="64" y1="324" x2="920" y2="324"/>
+        </g>
+        <!-- Axes -->
+        <g stroke="#0B1E3A" stroke-width="1.25" stroke-opacity="0.55">
+          <line x1="64" y1="36" x2="64" y2="324"/>
+          <line x1="64" y1="324" x2="920" y2="324"/>
+        </g>
+        <!-- Y ticks -->
+        <g fill="#0B1E3A" fill-opacity="0.7" font-family="Jost, Segoe UI, sans-serif" font-size="11" text-anchor="end">
+          <text x="56" y="66">20</text>
+          <text x="56" y="131">15</text>
+          <text x="56" y="197">10</text>
+          <text x="56" y="262">5</text>
+          <text x="56" y="328">0</text>
+        </g>
+        <!-- Continuous gold line — all annual arrivals 2010–2025 -->
+        <polyline points="64.0,131.2 121.1,195.1 178.1,173.0 235.2,200.1 292.3,194.7 349.3,201.9 406.4,253.3 463.5,215.5 520.5,175.5 577.6,153.5 634.7,275.9 691.7,219.3 748.8,170.5 805.9,128.9 862.9,117.2 920.0,75.3" fill="none" stroke="#C9A227" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Points with hover tooltips -->
+        <g fill="#0B1E3A" stroke="#C9A227" stroke-width="1.75">
+          <circle cx="64.0" cy="131.2" r="3.2"><title>2010: 14.731 million</title></circle>
+          <circle cx="121.1" cy="195.1" r="3.2"><title>2011: 9.845 million</title></circle>
+          <circle cx="178.1" cy="173.0" r="3.2"><title>2012: 11.532 million</title></circle>
+          <circle cx="235.2" cy="200.1" r="3.2"><title>2013: 9.464 million</title></circle>
+          <circle cx="292.3" cy="194.7" r="3.2"><title>2014: 9.878 million</title></circle>
+          <circle cx="349.3" cy="201.9" r="3.2"><title>2015: 9.328 million</title></circle>
+          <circle cx="406.4" cy="253.3" r="3.2"><title>2016: 5.399 million</title></circle>
+          <circle cx="463.5" cy="215.5" r="3.2"><title>2017: 8.292 million</title></circle>
+          <circle cx="520.5" cy="175.5" r="3.2"><title>2018: 11.346 million</title></circle>
+          <circle cx="577.6" cy="153.5" r="3.2"><title>2019: 13.026 million</title></circle>
+          <circle cx="634.7" cy="275.9" r="3.8"><title>2020: 3.678 million</title></circle>
+          <circle cx="691.7" cy="219.3" r="3.2"><title>2021: 7.999 million</title></circle>
+          <circle cx="748.8" cy="170.5" r="3.2"><title>2022: 11.724 million</title></circle>
+          <circle cx="805.9" cy="128.9" r="3.2"><title>2023: 14.906 million</title></circle>
+          <circle cx="862.9" cy="117.2" r="3.2"><title>2024: 15.8 million</title></circle>
+          <circle cx="920.0" cy="75.3" r="4.5" fill="#C9A227" stroke="#0B1E3A" stroke-width="1.25"><title>2025: 19.0 million</title></circle>
+        </g>
+        <!-- Subtle annotations -->
+        <text x="634.7" y="296" fill="#0B1E3A" fill-opacity="0.65" font-family="Jost, Segoe UI, sans-serif" font-size="11" text-anchor="middle">COVID-19</text>
+        <text x="920" y="62" fill="#0B1E3A" fill-opacity="0.8" font-family="Fraunces, Georgia, serif" font-size="12" text-anchor="end">19.0m — record</text>
+        <!-- X labels -->
+        <g fill="#0B1E3A" fill-opacity="0.75" font-family="Jost, Segoe UI, sans-serif" font-size="11" text-anchor="middle">
+          <text x="64.0" y="348">2010</text>
+          <text x="178.1" y="348">2012</text>
+          <text x="292.3" y="348">2014</text>
+          <text x="406.4" y="348">2016</text>
+          <text x="520.5" y="348">2018</text>
+          <text x="634.7" y="348">2020</text>
+          <text x="748.8" y="348">2022</text>
+          <text x="862.9" y="348">2024</text>
+          <text x="920.0" y="348">2025</text>
+        </g>
+      </svg>
+      <p class="data-chart-subtitle">Egypt's tourism recovery has been substantial: after arrivals fell to 3.7 million during the pandemic in 2020, they recovered to a record of approximately 19 million in 2025.</p>
+      <p class="data-chart-source">Sources: World Bank/UN Tourism (2010–2019); CAPMAS (2020–2022); Egyptian Ministry of Tourism and Antiquities (2023–2025).</p>
+    </figure>
+
+    <!-- EVIDENCE PANELS -->
+    <div class="evidence-grid">
+      <article class="evidence-card">
+        <p class="evidence-kicker">Conservation Impact</p>
+        <p class="evidence-stat">2,250</p>
+        <p class="evidence-stat-label">Participants in JICA-supported conservation training</p>
+        <ul class="evidence-mini-stats">
+          <li><strong>100+</strong> training programmes</li>
+          <li><strong>72</strong> selected artefacts in joint Egyptian–Japanese conservation work</li>
+        </ul>
+        <p class="evidence-text">The reforms were therefore not limited to attracting more visitors. Investment also expanded Egypt's technical capacity to conserve, document, restore and safely transport its heritage.</p>
+        <p class="evidence-source">Source: Japan International Cooperation Agency (JICA).</p>
+      </article>
+      <article class="evidence-card">
+        <p class="evidence-kicker">Preservation in Practice</p>
+        <p class="evidence-stat">~1,700</p>
+        <p class="evidence-stat-label">Wooden pieces from Khufu's Second Boat extracted and documented</p>
+        <p class="evidence-text">The conservation and reconstruction of Khufu's Second Boat demonstrates the physical preservation work taking place alongside the GEM's construction. JICA reported that 1,343 pieces had been transferred to the museum during the project.</p>
+        <p class="evidence-source">Source: Japan International Cooperation Agency (JICA).</p>
+      </article>
     </div>
 
-    <!-- ECONOMIC QUESTION BOX -->
-    <div class="econ-box">
-      <p class="econ-label">Economic Question</p>
-      <p>[Insert a guiding economic question, e.g. "Do these numbers prove causation, or only correlation?"]</p>
+    <!-- JUDGEMENT -->
+    <div class="verdict-block">
+      <p class="verdict-label">The Verdict</p>
+      <h3 class="verdict-title">So, did it work?</h3>
+      <p class="verdict-text">The evidence suggests substantial progress. Egypt reached a record 19 million tourists in 2025, while museum and archaeological-site admissions and conservation capacity also increased. These results suggest that Egypt is extracting greater economic value from its heritage while investing more heavily in its preservation. But they do not prove that management reform alone caused the tourism boom. The strongest conclusion is that heritage reform has become one important part of a much wider transformation of Egypt's tourism economy.</p>
+    </div>
+
+    <!-- ECONOMIC QUESTION + ANALYSIS -->
+    <div class="econ-unit">
+      <div class="econ-box">
+        <p class="econ-label">Economic Question</p>
+        <p class="econ-question">Do rising tourist numbers prove that heritage-management reforms worked?</p>
+        <div class="econ-analysis">
+          <p class="econ-analysis-label">Economic Analysis</p>
+          <p>Not by themselves. The figures show correlation, but establishing causation is more difficult because tourism demand is influenced by security, exchange rates, global travel conditions, marketing, air connectivity and other investment. Stronger evidence comes from examining several outcomes together. Record tourism alongside higher heritage-site admissions and measurable improvements in conservation provides a more convincing case that the reforms have generated both economic and cultural benefits.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
