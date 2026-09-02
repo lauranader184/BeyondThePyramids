@@ -280,6 +280,21 @@ a { color: inherit; text-decoration: none; }
 .section-dark { background: var(--navy-deep); color: var(--sandstone); }
 .section-dark .section-title { color: var(--white); }
 
+/* Investigation only — full viewport, navy, content vertically centred */
+#investigation {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--navy-deep);
+  color: var(--sandstone);
+  box-sizing: border-box;
+}
+#investigation .section-title { color: var(--white); }
+#investigation .editable-text p { color: rgba(217,199,163,0.85); }
+#investigation .container {
+  width: 100%;
+}
+
 .eyebrow {
   font-size: 12px;
   letter-spacing: 0.18em;
