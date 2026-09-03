@@ -1110,6 +1110,66 @@ a { color: inherit; text-decoration: none; }
 .tradeoff-card.is-open .tradeoff-detail,
 .policy-card.is-open .policy-detail { max-height: 260px; margin-top: 14px; }
 
+/* Policy Brief — cards keep their grid, reasoning opens beneath the row */
+#policy .policy-grid { align-items: start; }
+#policy .policy-card {
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#policy .policy-card.is-open { border-color: rgba(201, 162, 39, 0.6); }
+.policy-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.policy-head-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.policy-toggle {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+}
+.policy-toggle::before { content: "+"; font-weight: 400; }
+.policy-card.is-open .policy-toggle::before { content: "−"; }
+
+/* reasoning source text lives in the card but is only shown in the panel */
+.policy-reasoning { display: none; }
+
+.policy-detail-panel {
+  grid-column: 1 / -1;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.45s ease;
+}
+.policy-detail-panel.is-open { opacity: 1; }
+.policy-detail-inner {
+  background: var(--navy-soft);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-left: 2px solid rgba(201, 162, 39, 0.55);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+}
+.policy-detail-text {
+  margin: 0;
+  max-width: 70ch;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(217, 199, 163, 0.85);
+}
+
 /* Trade-offs section — expandable weighing cards */
 .tradeoff-hint {
   margin: -18px 0 28px;
@@ -1222,8 +1282,74 @@ a { color: inherit; text-decoration: none; }
 .interview-name { font-family: var(--font-display); font-size: 21px; margin: 0 0 4px; color: var(--white); }
 .interview-role { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px; }
 .interview-quote { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.6; color: rgba(217,199,163,0.9); max-width: 320px; margin: 0 auto; }
-.interview-video { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, margin-top 0.5s ease; margin-top: 0; }
-.interview-card.is-open .interview-video { max-height: 320px; margin-top: 20px; }
+
+/* Voices — written primary sources with expandable perspectives */
+#voices .interview-grid { align-items: start; }
+@media (min-width: 1000px) { #voices .interview-grid { grid-template-columns: 1fr 1fr; gap: 56px 48px; } }
+
+.voice-monogram {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 22px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 50%;
+  background: var(--navy-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 30px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+.voice-portrait {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+}
+
+.voice-toggle { margin-top: 20px; }
+.voice-sign { display: inline-block; margin-left: 4px; }
+.voice-sign::before { content: "+"; }
+.voice-block.is-open .voice-sign::before { content: "−"; }
+
+.voice-more {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.45s ease;
+}
+.voice-block.is-open .voice-more { opacity: 1; }
+.voice-more-inner { padding-top: 22px; }
+.voice-more-inner .interview-quote + .interview-quote { margin-top: 16px; }
+.voice-more-inner .primary-source-note {
+  margin: 24px auto 0;
+  max-width: 340px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(201, 162, 39, 0.22);
+}
+
+/* industry perspective — separated by a thin gold divider, no card */
+.voice-industry {
+  margin-top: 72px;
+  padding-top: 56px;
+  border-top: 1px solid rgba(201, 162, 39, 0.35);
+  text-align: center;
+}
+.voice-industry .interview-name { margin-top: 4px; }
+.voice-industry-quote { max-width: 620px; font-size: 18px; }
+.voice-more-inner .voice-industry-note { max-width: 560px; }
+
+.voice-note {
+  margin: 56px 0 0;
+  text-align: center;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: rgba(217, 199, 163, 0.45);
+}
 
 /* ================================================================
    FILM GALLERY

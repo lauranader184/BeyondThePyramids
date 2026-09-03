@@ -146,11 +146,112 @@ document.addEventListener("DOMContentLoaded", function () {
     statNumbers.forEach(function (el) { statIO.observe(el); });
   }
 
-  /* ---------------- EXPANDABLE CARDS (trade-offs, policy, interviews) ---------------- */
+  /* ---------------- POLICY BRIEF — reasoning opens beneath the card's row ---------------- */
+  var policyGrid = document.querySelector("#policy .policy-grid");
+  var policyPanel = document.getElementById("policyDetail");
+  if (policyGrid && policyPanel) {
+    var policyCards = Array.prototype.slice.call(policyGrid.querySelectorAll(".policy-card"));
+    var policyText = policyPanel.querySelector(".policy-detail-text");
+    var openPolicyCard = null;
+
+    function policyColumnCount() {
+      var cols = window.getComputedStyle(policyGrid).gridTemplateColumns;
+      if (!cols || cols === "none") return 1;
+      return cols.split(" ").filter(function (c) { return c; }).length;
+    }
+
+    function placePolicyPanel(index) {
+      var cols = policyColumnCount();
+      var lastInRow = Math.min(
+        Math.floor(index / cols) * cols + cols - 1,
+        policyCards.length - 1
+      );
+      var anchor = policyCards[lastInRow];
+      if (anchor.nextElementSibling !== policyPanel) {
+        anchor.parentNode.insertBefore(policyPanel, anchor.nextElementSibling);
+      }
+    }
+
+    var policyHideTimer = null;
+
+    function closePolicyPanel() {
+      if (!openPolicyCard) return;
+      openPolicyCard.classList.remove("is-open");
+      openPolicyCard.setAttribute("aria-expanded", "false");
+      openPolicyCard = null;
+      policyPanel.classList.remove("is-open");
+      policyPanel.style.maxHeight = "0px";
+      // take the collapsed panel out of the grid so it leaves no gap
+      policyHideTimer = setTimeout(function () {
+        if (!openPolicyCard) policyPanel.hidden = true;
+      }, 470);
+    }
+
+    policyCards.forEach(function (card, index) {
+      card.addEventListener("click", function () {
+        if (card === openPolicyCard) {
+          closePolicyPanel();
+          return;
+        }
+        closePolicyPanel();
+        clearTimeout(policyHideTimer);
+        placePolicyPanel(index);
+
+        var reasoning = card.querySelector(".policy-reasoning");
+        policyText.textContent = reasoning ? reasoning.textContent.trim() : "";
+
+        card.classList.add("is-open");
+        card.setAttribute("aria-expanded", "true");
+        openPolicyCard = card;
+
+        policyPanel.hidden = false;
+        void policyPanel.offsetHeight; // reflow so the height transition runs
+        policyPanel.style.maxHeight = policyPanel.scrollHeight + "px";
+        policyPanel.classList.add("is-open");
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      if (!openPolicyCard) return;
+      placePolicyPanel(policyCards.indexOf(openPolicyCard));
+      policyPanel.style.maxHeight = policyPanel.scrollHeight + "px";
+    });
+  }
+
+  /* ---------------- VOICES — expandable written perspectives ---------------- */
+  document.querySelectorAll("#voices [data-voice]").forEach(function (button) {
+    var block = button.closest(".voice-block");
+    var panel = block ? block.querySelector(".voice-more") : null;
+    var inner = panel ? panel.querySelector(".voice-more-inner") : null;
+    if (!block || !panel || !inner) return;
+
+    button.addEventListener("click", function () {
+      var opening = !block.classList.contains("is-open");
+
+      document.querySelectorAll("#voices .voice-block.is-open").forEach(function (open) {
+        open.classList.remove("is-open");
+        var openPanel = open.querySelector(".voice-more");
+        var openButton = open.querySelector("[data-voice]");
+        if (openPanel) openPanel.style.maxHeight = "0px";
+        if (openButton) openButton.setAttribute("aria-expanded", "false");
+      });
+
+      if (opening) {
+        block.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = inner.offsetHeight + "px";
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (block.classList.contains("is-open")) panel.style.maxHeight = inner.offsetHeight + "px";
+    });
+  });
+
+  /* ---------------- EXPANDABLE CARDS (trade-offs) ---------------- */
   document.querySelectorAll("[data-expand]").forEach(function (card) {
     card.addEventListener("click", function () {
-      // Interview toggle button lives inside an .interview-card
-      var target = card.classList.contains("interview-toggle") ? card.closest(".interview-card") : card;
+      var target = card;
 
       // Trade-offs: accordion — only one open at a time
       if (target && target.closest("#trade-offs") && target.classList.contains("tradeoff-card")) {
@@ -167,9 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       target.classList.toggle("is-open");
-      if (card.classList.contains("interview-toggle")) {
-        card.textContent = target.classList.contains("is-open") ? "Hide Interview" : "Watch Interview";
-      }
     });
   });
 
