@@ -7,13 +7,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------------- LOADER ---------------- */
   var loader = document.getElementById("loader");
+  var hero = document.getElementById("home");
+  var heroRevealed = false;
+  function revealHero() {
+    if (heroRevealed || !hero) return;
+    heroRevealed = true;
+    hero.classList.add("is-ready");
+  }
+  function hideLoader() {
+    if (loader) loader.classList.add("is-hidden");
+    revealHero();
+  }
   window.addEventListener("load", function () {
-    setTimeout(function () {
-      if (loader) loader.classList.add("is-hidden");
-    }, 700);
+    setTimeout(hideLoader, 700);
   });
   // Fallback in case 'load' already fired
-  setTimeout(function () { if (loader) loader.classList.add("is-hidden"); }, 2500);
+  setTimeout(hideLoader, 2500);
 
   /* ---------------- HEADER SCROLL STATE ---------------- */
   var header = document.getElementById("siteHeader");
@@ -23,6 +32,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   updateHeader();
   window.addEventListener("scroll", updateHeader);
+
+  /* ---------------- HERO GEOMETRY PARALLAX (desktop only) ---------------- */
+  var heroSection = document.getElementById("home");
+  var heroPlanes = heroSection ? heroSection.querySelectorAll(".hero-geo-plane") : [];
+  var canParallax =
+    heroPlanes.length &&
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (canParallax) {
+    heroSection.addEventListener("mousemove", function (e) {
+      var rect = heroSection.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroPlanes.forEach(function (plane) {
+        var depth = parseFloat(plane.getAttribute("data-parallax")) || 6;
+        plane.style.transform =
+          "translate(" + (x * depth).toFixed(1) + "px, " + (y * (depth * 0.75)).toFixed(1) + "px)";
+      });
+    });
+    heroSection.addEventListener("mouseleave", function () {
+      heroPlanes.forEach(function (plane) {
+        plane.style.transform = "translate(0, 0)";
+      });
+    });
+  }
 
   /* ---------------- MOBILE NAV TOGGLE ---------------- */
   var navToggle = document.getElementById("navToggle");
