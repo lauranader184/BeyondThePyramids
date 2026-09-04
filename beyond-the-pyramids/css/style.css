@@ -1418,6 +1418,30 @@ a { color: inherit; text-decoration: none; }
   color: var(--terracotta);
   border-bottom-color: var(--terracotta);
 }
+.contact-instagram {
+  margin: 16px 0 0;
+}
+.contact-instagram a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.4);
+  padding-bottom: 2px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.contact-instagram a:hover {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold-light);
+}
+.contact-instagram-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
+}
 
 /* ================================================================
    FOOTER
