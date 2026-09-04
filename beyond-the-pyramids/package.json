@@ -2,7 +2,8 @@
   "name": "beyond-the-pyramids",
   "private": true,
   "scripts": {
-    "build:prism": "esbuild components/mount-prism.jsx --bundle --outfile=js/prism-bundle.js --format=iife --jsx=automatic"
+    "build": "npm run build:prism",
+    "build:prism": "esbuild components/mount-prism.jsx --bundle --minify --outfile=js/prism-bundle.js --format=iife --jsx=automatic --define:process.env.NODE_ENV=\\\"production\\\""
   },
   "dependencies": {
     "ogl": "^1.0.11",

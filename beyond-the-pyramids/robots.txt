@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lauranader184.github.io/BeyondThePyramids/sitemap.xml

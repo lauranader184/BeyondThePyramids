@@ -1,4 +1,5 @@
-# Video files are too large for git hosting (GitHub rejects files over 100 MB).
-# Keep the film locally, or host it on YouTube/Vimeo and embed it instead.
-beyond-the-pyramids/video/
+# GitHub rejects files over 100 MB. The main film is ~851 MB, so it
+# cannot be pushed with the rest of the site. Gallery clips are smaller
+# and can be committed. Host documentary.mp4 separately for production.
+beyond-the-pyramids/video/documentary.mp4
 beyond-the-pyramids/node_modules/
