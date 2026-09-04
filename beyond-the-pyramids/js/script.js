@@ -101,6 +101,25 @@ document.addEventListener("DOMContentLoaded", function () {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---------------- FILM GALLERY — clips play only while on screen ----------------
+     Scoped to .film-clip so the main documentary player is never touched. */
+  var galleryClips = document.querySelectorAll("#documentary .film-gallery .film-clip");
+  if (galleryClips.length && "IntersectionObserver" in window) {
+    var clipIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var clip = entry.target;
+        if (entry.intersectionRatio >= 0.5) {
+          var started = clip.play();
+          // browsers that block autoplay reject this promise; ignore it
+          if (started && started.catch) started.catch(function () {});
+        } else if (!entry.isIntersecting && !clip.paused) {
+          clip.pause();
+        }
+      });
+    }, { threshold: [0, 0.5] });
+    galleryClips.forEach(function (clip) { clipIO.observe(clip); });
+  }
+
   /* ---------------- BEFORE / AFTER SLIDERS ---------------- */
   document.querySelectorAll(".ba-slider").forEach(function (slider) {
     var range = slider.querySelector(".ba-slider-range");

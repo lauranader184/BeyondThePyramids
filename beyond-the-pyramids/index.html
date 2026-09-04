@@ -67,6 +67,9 @@
 <section id="home" class="hero">
   <div class="hero-glow" aria-hidden="true"></div>
 
+  <!-- React Bits Prism, recoloured to gold — hero background only -->
+  <div class="hero-prism" id="heroPrism" aria-hidden="true"></div>
+
   <div class="hero-geometry" aria-hidden="true">
     <div class="hero-geo-plane" data-parallax="4">
       <svg class="hero-geometry-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
@@ -739,7 +742,7 @@
     <p class="eyebrow">Testimony</p>
     <h2 class="section-title">Voices of Egypt</h2>
     <div class="editable-text lede">
-      <p>Data can show what changed, but not always what those changes looked like on the ground. I spoke with people who experienced Egypt's tourism and heritage sector from different perspectives, using their first-hand accounts to test the findings presented throughout this investigation.</p>
+      <p>Data can show what changed, but not how those changes affected the people who experienced them. I spoke with people who experienced Egypt's tourism and heritage sector from different perspectives, using their first-hand accounts to test the findings presented throughout this investigation.</p>
     </div>
 
     <div class="interview-grid">
@@ -749,7 +752,7 @@
            <img class="voice-portrait" src="images/your-photo.jpg" alt=""> -->
       <article class="interview-card voice-block">
         <div class="interview-photo">
-          <div class="voice-monogram" aria-hidden="true">FS</div>
+          <img class="voice-portrait" src="images/voice-fadi-seif.jpg" alt="Fadi Seif">
         </div>
         <h3 class="interview-name">Fadi Seif</h3>
         <p class="interview-role">Visitor from the Gulf</p>
@@ -769,7 +772,7 @@
 
       <article class="interview-card voice-block">
         <div class="interview-photo">
-          <div class="voice-monogram" aria-hidden="true">HL</div>
+          <img class="voice-portrait" src="images/voice-harry-lewis.jpg" alt="Harry Lewis">
         </div>
         <h3 class="interview-name">Harry Lewis</h3>
         <p class="interview-role">Visitor from England</p>
@@ -789,9 +792,9 @@
 
       <article class="interview-card voice-block">
         <div class="interview-photo">
-          <div class="voice-monogram" aria-hidden="true">CV</div>
+          <img class="voice-portrait" src="images/voice-michael-bertuzzi.jpg" alt="Michael Bertuzzi">
         </div>
-        <h3 class="interview-name">Canadian Visitor</h3>
+        <h3 class="interview-name">Michael Bertuzzi</h3>
         <p class="interview-role">Visitor from Canada · Previous visitor to the Egyptian Museum</p>
         <p class="interview-quote">“They're very different. This is obviously architecturally stunning, with lots and lots of space, displays and interpretive signage.”</p>
         <button class="btn btn-outline voice-toggle" type="button" data-voice aria-expanded="false">Explore Perspective <span class="voice-sign" aria-hidden="true"></span></button>
@@ -809,9 +812,9 @@
 
       <article class="interview-card voice-block">
         <div class="interview-photo">
-          <div class="voice-monogram" aria-hidden="true">GEM</div>
+          <img class="voice-portrait" src="images/voice-gem-employee.jpg" alt="Abdelaziz Abdelnassr">
         </div>
-        <h3 class="interview-name">GEM Gift Shop Employee</h3>
+        <h3 class="interview-name">Abdelaziz Abdelnassr</h3>
         <p class="interview-role">Grand Egyptian Museum Gift Shop Employee</p>
         <p class="interview-quote">“Visitors value the Egyptian handicrafts and appreciate that the products are made here in Egypt.”</p>
         <button class="btn btn-outline voice-toggle" type="button" data-voice aria-expanded="false">Explore Perspective <span class="voice-sign" aria-hidden="true"></span></button>
@@ -831,9 +834,12 @@
     <!-- INDUSTRY PERSPECTIVE -->
     <div class="voice-industry voice-block">
       <p class="eyebrow">Industry Perspective</p>
+      <div class="interview-photo">
+        <img class="voice-portrait" src="images/voice-maged-el-sadek.jpg" alt="Maged El Sadek">
+      </div>
       <!-- CHANGE NAME AND ROLE -->
-      <h3 class="interview-name">[NAME]</h3>
-      <p class="interview-role">[EXACT ROLE], Orascom</p>
+      <h3 class="interview-name">Maged El Sadek</h3>
+      <p class="interview-role">Tourism Director, Orascom</p>
       <p class="interview-quote voice-industry-quote">“The main thing that the private sector brought was organisation and consideration for the visitor's needs.”</p>
       <button class="btn btn-outline voice-toggle" type="button" data-voice aria-expanded="false">Explore Perspective <span class="voice-sign" aria-hidden="true"></span></button>
       <div class="voice-more">
@@ -860,21 +866,35 @@
     <p class="eyebrow">Field Footage</p>
     <h2 class="section-title">Documentary</h2>
 
-    <!-- MAIN VIDEO -->
-    <div class="placeholder-box video-box large">INSERT VIDEO<br><span>[Embed your main documentary here — replace with an &lt;iframe&gt; from YouTube/Vimeo.]</span></div>
+    <!-- MAIN VIDEO — CHANGE FILM: replace video/documentary.mp4 -->
+    <video class="documentary-video" controls preload="metadata" playsinline poster="images/documentary-poster.jpg">
+      <source src="video/documentary.mp4" type="video/mp4">
+      Your browser cannot play this video. <a href="video/documentary.mp4">Download the film</a> instead.
+    </video>
 
     <!-- WRITE INTRODUCTION -->
     <div class="editable-text">
-      <p>[Write a short description of the documentary: what it covers, how it was filmed, and what the viewer should take away from it.]</p>
+      <p>This documentary explores how the Grand Egyptian Museum and wider reforms at the Giza Plateau are changing the way Egypt manages its heritage. Combining original footage, on-site observations and interviews with visitors and tourism professionals, it examines the impact of these changes on preservation, the visitor experience and Egypt’s economy. More than a story about a new museum, it asks how Egypt can share its history with the world while protecting it for the future.</p>
     </div>
 
     <h3 class="subheading">Film Gallery</h3>
     <div class="film-gallery">
-      <div class="placeholder-box small">CLIP</div>
-      <div class="placeholder-box small">CLIP</div>
-      <div class="placeholder-box small">CLIP</div>
-      <div class="placeholder-box small">CLIP</div>
-      <!-- DUPLICATE a placeholder-box above to add more clips -->
+      <!-- CHANGE CLIPS: replace video/clip-1.mp4 … clip-4.mp4
+           These files contain no audio track at all, so they are silent
+           even if a viewer tries to unmute them. -->
+      <video class="film-clip" muted loop playsinline controls preload="metadata" poster="images/clip-1-poster.jpg">
+        <source src="video/clip-1.mp4" type="video/mp4">
+      </video>
+      <video class="film-clip" muted loop playsinline controls preload="metadata" poster="images/clip-2-poster.jpg">
+        <source src="video/clip-2.mp4" type="video/mp4">
+      </video>
+      <video class="film-clip" muted loop playsinline controls preload="metadata" poster="images/clip-3-poster.jpg">
+        <source src="video/clip-3.mp4" type="video/mp4">
+      </video>
+      <video class="film-clip" muted loop playsinline controls preload="metadata" poster="images/clip-4-poster.jpg">
+        <source src="video/clip-4.mp4" type="video/mp4">
+      </video>
+      <!-- DUPLICATE a .film-clip video above to add more clips -->
     </div>
   </div>
 </section>
@@ -1012,15 +1032,21 @@
 </section>
 
 <!-- ============================================================
-     CONTACT — navy closing band
+     CONTACT — same editorial row as Acknowledgements
      ============================================================ -->
-<section id="contact" class="contact-band">
-  <div class="contact-inner">
-    <p class="contact-label">Contact</p>
-    <p class="contact-name">Laura Nashed</p>
-    <p class="contact-role">Creator &amp; Researcher, Beyond the Pyramids</p>
-    <!-- CHANGE EMAIL -->
-    <p class="contact-email"><a href="mailto:[your.email@example.com]">[your.email@example.com]</a></p>
+<section id="contact" class="ack-section contact-section reveal">
+  <div class="container">
+    <div class="ack-grid">
+      <div class="ack-heading-col">
+        <h2 class="subheading ack-title">Contact</h2>
+      </div>
+      <div class="editable-text ack-body contact-body">
+        <p class="contact-name">Laura Nashed</p>
+        <p class="contact-role">Creator &amp; Researcher, Beyond the Pyramids</p>
+        <!-- CHANGE EMAIL -->
+        <p class="contact-email"><a href="mailto:[your.email@example.com]">lauranader184@icloud.com</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1035,5 +1061,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script src="js/prism.js"></script>
 </body>
 </html>
