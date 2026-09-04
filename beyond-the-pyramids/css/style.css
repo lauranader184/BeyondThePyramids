@@ -1279,6 +1279,9 @@ a { color: inherit; text-decoration: none; }
 }
 .documentary-preview {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -1300,18 +1303,18 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.3s ease;
 }
 .documentary-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   z-index: 1;
   display: block;
+  flex: 0 0 76px;
   width: 76px;
   height: 76px;
   margin: 0;
   padding: 0;
-  transform: translate(-50%, -50%);
+  line-height: 0;
   pointer-events: none;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+  transform-origin: center center;
   transition: transform 0.3s ease;
 }
 .documentary-play svg {
@@ -1325,13 +1328,16 @@ a { color: inherit; text-decoration: none; }
 }
 .documentary-preview:hover .documentary-play,
 .documentary-preview:focus-visible .documentary-play {
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: scale(1.05);
 }
 .documentary-preview:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
 @media (max-width: 700px) {
+  .documentary-play {
+    flex-basis: 56px;
+  }
   .documentary-play,
   .documentary-play svg {
     width: 56px;
