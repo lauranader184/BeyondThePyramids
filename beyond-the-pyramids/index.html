@@ -827,11 +827,16 @@
     <p class="eyebrow">Field Footage</p>
     <h2 class="section-title">Documentary</h2>
 
-    <!-- MAIN VIDEO — CHANGE FILM: replace video/documentary.mp4 -->
-    <video class="documentary-video" controls preload="metadata" playsinline poster="images/documentary-poster.jpg">
-      <source src="video/documentary.mp4" type="video/mp4">
-      Your browser cannot play this video. <a href="video/documentary.mp4">Download the film</a> instead.
-    </video>
+    <!-- MAIN FILM — replace DOCUMENTARY_URL_HERE with the external documentary link -->
+    <a class="documentary-video documentary-preview" href="https://youtu.be/iQLAll5dRjo" target="_blank" rel="noopener noreferrer" aria-label="Watch the documentary (opens in a new tab)">
+      <img class="documentary-preview-image" src="images/documentary-poster.jpg" alt="">
+      <span class="documentary-play" aria-hidden="true">
+        <svg viewBox="0 0 72 72" focusable="false">
+          <circle cx="36" cy="36" r="33.5" fill="rgba(7,20,38,0.42)" stroke="#C9A227" stroke-width="1.4"/>
+          <polygon points="30,24.5 30,47.5 51,36" fill="#C9A227"/>
+        </svg>
+      </span>
+    </a>
 
     <!-- WRITE INTRODUCTION -->
     <div class="editable-text">

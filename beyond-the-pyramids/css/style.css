@@ -1277,6 +1277,47 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid rgba(201, 162, 39, 0.3);
   border-radius: var(--radius);
 }
+.documentary-preview {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+.documentary-preview-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+.documentary-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.documentary-play svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.documentary-preview:hover .documentary-preview-image,
+.documentary-preview:focus-visible .documentary-preview-image {
+  opacity: 0.88;
+}
+.documentary-preview:hover .documentary-play,
+.documentary-preview:focus-visible .documentary-play {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+.documentary-preview:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
 
 /* ================================================================
    FILM GALLERY
