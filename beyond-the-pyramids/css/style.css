@@ -222,115 +222,17 @@ a { color: inherit; text-decoration: none; }
   background: var(--navy-deep);
 }
 
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 58% 48% at 50% 46%, #12304f 0%, #0a1c34 42%, var(--navy-deep) 72%, #050d18 100%);
-}
-
-/* prism light field — sits on the navy, under the line geometry and text */
 .hero-prism {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 0.3;
-  mix-blend-mode: screen;
-}
-@media (max-width: 760px) {
-  .hero-prism { opacity: 0.22; }
-}
-
-.hero-geometry {
-  position: absolute;
-  inset: -8%;
-  z-index: 1;
-  pointer-events: none;
-}
-.hero-geo-plane {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-  transition: transform 0.5s ease-out;
-}
-.hero-geometry-svg {
   width: 100%;
   height: 100%;
-  display: block;
-  overflow: visible;
-}
-
-.hero-geo-drift--a { animation: heroDriftA 28s ease-in-out infinite; }
-.hero-geo-drift--b { animation: heroDriftB 22s ease-in-out infinite; }
-.hero-geo-drift--c { animation: heroDriftC 32s ease-in-out infinite; }
-@keyframes heroDriftA {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-8px, 5px); }
-}
-@keyframes heroDriftB {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(6px, -7px); }
-}
-@keyframes heroDriftC {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-5px, -4px); }
-}
-
-.hero-geo-draw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: heroLineDraw 24s ease-in-out infinite;
-}
-.hero-geo-draw:nth-child(2) { animation-duration: 27s; animation-delay: -8s; }
-.hero-geo-draw:nth-child(3) { animation-duration: 21s; animation-delay: -14s; }
-.hero-geo-draw:nth-child(4) { animation-duration: 30s; animation-delay: -4s; }
-.hero-geo-draw--late { animation-duration: 26s; animation-delay: -11s; }
-.hero-geo-draw--late:nth-of-type(2) { animation-duration: 19s; animation-delay: -17s; }
-@keyframes heroLineDraw {
-  0% { stroke-dashoffset: 1; opacity: 0.12; }
-  18% { stroke-dashoffset: 0; opacity: 0.85; }
-  42% { stroke-dashoffset: 0; opacity: 0.4; }
-  68% { stroke-dashoffset: -1; opacity: 0.1; }
-  100% { stroke-dashoffset: 1; opacity: 0.12; }
-}
-
-.hero-geo-hold {
-  animation: heroLineBreathe 18s ease-in-out infinite;
-}
-.hero-geo-hold:nth-child(even) { animation-duration: 23s; animation-delay: -6s; }
-@keyframes heroLineBreathe {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.9; }
-}
-
-.hero-geo-node {
-  animation: heroNodePulse 16s ease-in-out infinite;
-}
-.hero-geo-node:nth-child(odd) { animation-duration: 20s; animation-delay: -5s; }
-.hero-geo-node:nth-child(even) { animation-duration: 13s; animation-delay: -9s; }
-@keyframes heroNodePulse {
-  0%, 100% { opacity: 0.15; }
-  40% { opacity: 0.9; }
-  70% { opacity: 0.25; }
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  mix-blend-mode: overlay;
+  z-index: 0;
 }
 
 .hero-shell {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 100%;
   max-width: 920px;
   margin: 0 auto;
@@ -431,12 +333,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-geo-drift--a,
-  .hero-geo-drift--b,
-  .hero-geo-drift--c,
-  .hero-geo-draw,
-  .hero-geo-hold,
-  .hero-geo-node,
   .hero.is-ready .hero-title,
   .hero.is-ready .hero-question,
   .hero.is-ready .hero-actions {

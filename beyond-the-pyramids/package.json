@@ -1,0 +1,15 @@
+{
+  "name": "beyond-the-pyramids",
+  "private": true,
+  "scripts": {
+    "build:prism": "esbuild components/mount-prism.jsx --bundle --outfile=js/prism-bundle.js --format=iife --jsx=automatic"
+  },
+  "dependencies": {
+    "ogl": "^1.0.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
