@@ -27,6 +27,7 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var TS = reduceMotion ? 0 : TIME_SCALE; // 0 renders one still frame
+  var STILL = TS < 1e-6;
   var BASE_HALF = BASE_WIDTH * 0.5;
 
   /* ---------------- WebGL context ---------------- */
@@ -37,7 +38,9 @@
     depth: false,
     stencil: false,
     premultipliedAlpha: false,
-    powerPreference: "low-power"
+    powerPreference: "low-power",
+    // a single still frame would otherwise be cleared after compositing
+    preserveDrawingBuffer: STILL
   };
   var gl = canvas.getContext("webgl", attributes) ||
            canvas.getContext("experimental-webgl", attributes);
@@ -232,10 +235,15 @@
     gl.uniform1f(u.uPxScale, 1 / ((canvas.height || 1) * 0.1 * SCALE));
   }
 
+  function onResize() {
+    resize();
+    if (STILL) requestRepaint(); // the frozen frame has to be drawn again
+  }
+
   if ("ResizeObserver" in window) {
-    new ResizeObserver(resize).observe(container);
+    new ResizeObserver(onResize).observe(container);
   } else {
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", onResize);
   }
   resize();
 
@@ -264,34 +272,54 @@
   var phZ = Math.random() * Math.PI * 2;
 
   var raf = 0;
+  var stillFrames = 0;
   var t0 = performance.now();
 
   function render(t) {
     var time = (t - t0) * 0.001;
     gl.uniform1f(u.iTime, time);
 
-    var scaled = time * TS;
-    var yaw = scaled * wY;
-    var pitch = Math.sin(scaled * wX + phX) * 0.6;
-    var roll = Math.sin(scaled * wZ + phZ) * 0.5;
+    var yaw, pitch, roll;
+    if (STILL) {
+      // reduced motion: one composed frame instead of the rotation
+      yaw = 0.55;
+      pitch = 0.32;
+      roll = -0.18;
+    } else {
+      var scaled = time * TS;
+      yaw = scaled * wY;
+      pitch = Math.sin(scaled * wX + phX) * 0.6;
+      roll = Math.sin(scaled * wZ + phZ) * 0.5;
+    }
     gl.uniformMatrix3fv(u.uRot, false, setMat3FromEuler(yaw, pitch, roll, rot));
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
 
-    raf = TS < 1e-6 ? 0 : requestAnimationFrame(render);
+    if (STILL) {
+      // a single preserved frame can be dropped by the compositor, so hold
+      // the frozen pose for a moment and then stop
+      stillFrames += 1;
+      raf = stillFrames < 30 ? requestAnimationFrame(render) : 0;
+    } else {
+      raf = requestAnimationFrame(render);
+    }
   }
 
   function start() { if (!raf) raf = requestAnimationFrame(render); }
   function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+  function requestRepaint() { stillFrames = 0; start(); }
 
   // stop drawing once the hero is scrolled away
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) start();
+      if (entries.some(function (e) { return e.isIntersecting; })) requestRepaint();
       else stop();
     }).observe(container);
   }
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) requestRepaint();
+  });
   start();
 })();
